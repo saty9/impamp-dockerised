@@ -1,0 +1,23 @@
+version: '3.3'
+services:
+  impamp:
+    build:
+      context: .
+      dockerfile:  ./Dockerfile
+      labels:
+        - "autoheal=true"
+    volumes:
+      - type: bind
+        source: ./audio_mount
+        target: /srv/impamp/audio
+      - type: bind
+        source: ./impamp_server.json
+        target: /srv/impamp/impamp_server.json
+    ports:
+      - "3000:3000"
+    restart: always
+  autoheal:
+    image: "willfarrell/autoheal"
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock

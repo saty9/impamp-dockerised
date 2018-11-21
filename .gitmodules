@@ -1,0 +1,3 @@
+[submodule "impamp"]
+	path = impamp
+	url = https://github.com/EdinburghUniversityTheatreCompany/ImpAmp.git
