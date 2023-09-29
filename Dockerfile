@@ -8,4 +8,3 @@ ADD impamp_server.json /srv/impamp/.
 RUN mkdir /srv/impamp/audio
 ADD healthcheck.rb .
 CMD ["thin", "start"]
-HEALTHCHECK --interval=1m CMD ruby healthcheck.rb
